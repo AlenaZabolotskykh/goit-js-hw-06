@@ -9,16 +9,28 @@
 
 // // Візьми код нижче з ініціалізацією екземпляра й викликами методів і встав його після оголошення класу для перевірки коректності роботи. У консоль будуть виведені результати їх роботи. Будь ласка, нічого там не змінюй.
 
+class Storage {
+  #items
+  
+  constructor(items){
+    this.#items = items}
+    getItems() {return this.#items}
 
+    addItem(newItem) {this.#items.push(newItem)}
 
-// const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
-// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+    removeItem(itemToRemove) {
+      this.#items = this.#items.filter(item => item !== itemToRemove)
+    }
+  }
 
-// storage.addItem("Droid");
-// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
 
-// storage.removeItem("Prolonger");
-// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+storage.addItem("Droid");
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
 
-// storage.removeItem("Scaner");
-// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+storage.removeItem("Prolonger");
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+storage.removeItem("Scaner");
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
